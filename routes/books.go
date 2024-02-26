@@ -17,11 +17,11 @@ func SetUp() *gin.Engine {
 	gin.DefaultWriter = io.MultiWriter(f)
 
 	// ROUTES
-	app.GET("/books", controllers.ObtenerLibros)
-	app.GET("/books/:id", controllers.ObetenerLibroById)
-	app.POST("/books", controllers.CrearLibro)
-	app.PUT("/books/:id", controllers.ModificarLibro)
-	app.DELETE("/books/:id", controllers.EliminarLibro)
+	app.GET("/books", controllers.GetBooks)
+	app.GET("/books/:id", controllers.GetBookById)
+	app.POST("/books", controllers.CreateBook)
+	app.PUT("/books/:id", controllers.ModifiedBook)
+	app.DELETE("/books/:id", controllers.DeleteBook)
 
 	return app
 }
