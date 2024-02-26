@@ -1,20 +1,11 @@
 package routes
 
 import (
-	"io"
-	"os"
-
 	"github.com/FrancoRutigliano/controllers"
 	"github.com/gin-gonic/gin"
 )
 
-func SetUp() *gin.Engine {
-
-	app := gin.New()
-
-	f, _ := os.Create("/log/api.log")
-
-	gin.DefaultWriter = io.MultiWriter(f)
+func SetUp(app *gin.Engine) {
 
 	// ROUTES
 	app.GET("/books", controllers.GetBooks)
@@ -23,5 +14,4 @@ func SetUp() *gin.Engine {
 	app.PUT("/books/:id", controllers.ModifiedBook)
 	app.DELETE("/books/:id", controllers.DeleteBook)
 
-	return app
 }
